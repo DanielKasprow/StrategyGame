@@ -11,13 +11,13 @@
 #include "../Interfaces/UnitsFightingActions.cpp"
 #include "../Interfaces/WorkerUnitActions.cpp"
 
-using namespace std;
-
-
+enum UnitType { Knight, Swordsman, Archer, Pikeman, Ram, Catapult };
 
 class Base : public Unit{
+    int productionTime = 0;
+
 public:
-    Base();
+    Base(int localizationY, int localizationX, char ownerUnit);
     virtual ~Base();
 
     int getId() override;
@@ -28,11 +28,20 @@ public:
     int getLocalizationX() override;
     int getLocalizationY() override;
 
+    int getProductionTime();
+
+    void setProductionTime(int productionRemaning);
+
+    char getOwner() override;
 };
 
 class Worker : public Unit, UnitsFightingActions, WorkerUnitActions{
 public:
+
     Worker();
+
+    Worker(char ownerUnit);
+
     virtual ~Worker();
 
     int getId() override;
@@ -52,12 +61,16 @@ public:
 
     int getMiningGoldPerRound() override;
 
+    char getOwner() override;
+
 };
 
-class Knight : public Unit, UnitsFightingActions{
+class FightingUnit : public Unit, UnitsFightingActions{
 public:
-    Knight();
-    virtual ~Knight();
+
+    FightingUnit(char ownerUnit, UnitType unitType);
+
+    virtual ~FightingUnit();
 
     int getId() override;
     int getDurability() override;
@@ -74,118 +87,7 @@ public:
     void setLocalizationX(int localizationX) override;
     void setLocalizationY(int localizationY) override;
 
-};
-
-class Swordsman : public Unit, UnitsFightingActions{
-public:
-    Swordsman();
-    virtual ~Swordsman();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
+    char getOwner() override;
 
 };
 
-class Archer : public Unit, UnitsFightingActions{
-public:
-    Archer();
-    virtual ~Archer();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
-
-};
-
-class Pikeman : public Unit, UnitsFightingActions{
-public:
-    Pikeman();
-    virtual ~Pikeman();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
-
-};
-
-class Ram : public Unit, UnitsFightingActions{
-public:
-    Ram();
-    virtual ~Ram();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
-
-};
-
-class Catapult : public Unit, UnitsFightingActions{
-public:
-    Catapult();
-    virtual ~Catapult();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
-
-};
-
-class Team {
-
-};

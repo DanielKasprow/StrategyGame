@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//enum Jednostka { Rycerz, Czolg };
+
 static int lastId = 1;
 //Abstraction class for units
 class Unit {
@@ -18,15 +18,20 @@ protected:
     int speed;
     int localizationX;
     int localizationY;
+    char ownerUnit;
 
-    Unit(string name, int durability, int speed) {
-        this->name = name;
-        this->durability = durability;
-        this->speed = speed;
-        this->unitId = lastId++;
+    Unit(string name, int durability, int speed, int ownerUnit) {
+        Unit::name = name;
+        Unit::durability = durability;
+        Unit::speed = speed;
+        Unit::unitId = lastId++;
+        Unit::ownerUnit = ownerUnit;
     }
+public:
 
     virtual int getId() = 0;
+
+    virtual char getOwner() = 0;
 
     virtual int getDurability() = 0;
 
@@ -37,8 +42,5 @@ protected:
     virtual int getLocalizationX() = 0;
 
     virtual int getLocalizationY() = 0;
-
-    //virtual string enumFunction(Jednostka name) = 0;
-
 
 };

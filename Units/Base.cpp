@@ -1,12 +1,11 @@
 //
 // Created by Daniel Kasprow on 28.04.2023.
 //
-#include <iostream>
 #include "../Headers/Units.h"
 
-using namespace std;
-
-Base::Base() : Unit("Base", 200, 0) {
+Base::Base(int localizationX, int localizationY, char ownerUnit) : Unit("B", 200, 0, ownerUnit) {
+    Base::localizationX = localizationX;
+    Base::localizationY = localizationY;
 
 };
 
@@ -15,7 +14,7 @@ int Base::getDurability() {
 }
 
 void Base::setDurability(int durability) {
-    this->durability = durability;
+    Base::durability = durability;
 }
 
 int Base::getSpeed() {
@@ -35,3 +34,17 @@ int Base::getId() {
 }
 
 Base::~Base() {}
+
+int Base::getProductionTime() {
+    return productionTime;
+}
+
+void Base::setProductionTime(int productionTime) {
+    Base::productionTime = productionTime;
+}
+
+char Base::getOwner() {
+    return ownerUnit;
+}
+
+

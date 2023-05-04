@@ -1,5 +1,5 @@
 //
-// Created by trane on 30.04.2023.
+// Created by Daniel Kasprow on 30.04.2023.
 //
 
 #include <list>
@@ -8,15 +8,18 @@
 #define UNTITLED_BOARD_H
 
 #endif //UNTITLED_BOARD_H
-using namespace std;
 
 class Board{
     char **board;
-    //string fileLocalization;
+    int boardHeight;
+    int boardWidth;
 
 public:
-    Board(string fileLocalization);
+    Board(std::string fileLocalization);
     ~Board();
 
     char getBoardPoint(int x, int y);
+    int getBoardHeight();
+    int getBoardWidth();
+    int *getLocationPlayer(char player);
 };

@@ -10,13 +10,15 @@
 
 using namespace std;
 
+int boardWidthTemp;
+int boardHeightTemp;
+
 //Method that load board from file in format .txt
 char **loadBoardFromFile(string file) {
 
     char **board;
     vector<string> boardTemp;
     ifstream loadboard(file);
-    int widhtBoard = 0;
     string rowLoad;
 
     //if exist file
@@ -25,8 +27,9 @@ char **loadBoardFromFile(string file) {
         while (!loadboard.eof()) {
             getline(loadboard, rowLoad);
             boardTemp.push_back(rowLoad);
-            widhtBoard = rowLoad.length();
+
         }
+        boardWidthTemp=boardTemp[0].size();
     }
     else {
         char **board = new char *[0];
@@ -34,27 +37,51 @@ char **loadBoardFromFile(string file) {
         board[0][0] = -1;
     }
     loadboard.close();
+    boardHeightTemp = boardTemp.size();
 
-
-    board = new char*[boardTemp.size()];
-    for (int x = 0; x < boardTemp.size(); x++) {
-        board[x] = new char[widhtBoard];
+    board = new char*[boardHeightTemp];
+    for (int x = 0; x < boardHeightTemp; x++) {
+        board[x] = new char[boardWidthTemp];
     }
-
     //convert list to char 2d
-    for (int i=0;i<boardTemp.size() ; i++) {
+    for (int i=0;i<boardHeightTemp ; i++) {
         rowLoad = boardTemp[i];
         strcpy(board[i], rowLoad.c_str());
     }
+
     return board;
 }
 
+
 Board::Board(string file) {
-    board = loadBoardFromFile(file);
+
+    Board::board = loadBoardFromFile(file);
+    Board::boardWidth = boardWidthTemp;
+    Board::boardHeight = boardHeightTemp;
 };
 
-char Board::getBoardPoint(int x, int y){
-    return board[x][y];
+char Board::getBoardPoint(int y, int x){
+    return Board::board[y][x];
+}
+int *Board::getLocationPlayer(char player) {
+    for(int height=0; height < boardHeightTemp; height++){
+        for(int width=0; width < boardWidthTemp; width++){
+            if(board[height][width] == player){
+                int localization[2]={height,width};
+                return localization;
+            }
+        }
+    }
+    return nullptr;
 }
 
-Board::~Board() {};
+int Board::getBoardHeight() {
+    return boardHeight;
+}
+
+int Board::getBoardWidth() {
+    return boardWidth;
+}
+
+
+Board::~Board() {}

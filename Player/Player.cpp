@@ -4,8 +4,19 @@
 
 #include "../Headers/Player.h"
 
-Player::~Player() {
+Player::Player() {
+    this-> gold = 2000;
+}
+
+Player::~Player() {}
+
+int Player::getGold() {
+    return gold;
+}
+
+void Player::setGold(int gold) {
+    this->gold = gold;
 
 }
 
-Player::Player() {}
+

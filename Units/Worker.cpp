@@ -6,13 +6,11 @@
 
 using namespace std;
 
-Worker::Worker() : Unit("Worker", 20, 2) {
-    price = 100;
-    range = 1;
-    buildTime = 2;
-    miningGoldPerRound = 50;
-    //delete [] attack;
-    //int attack[8] = {35,35,35,35,35,50,35,35};
+Worker::Worker(char ownerUnit) : Unit("W", 20, 2, ownerUnit) {
+    price = price;
+    range = range;
+    buildTime = buildTime;
+    miningGoldPerRound = miningGoldPerRound;
 };
 
 int Worker::getDurability() {
@@ -20,7 +18,7 @@ int Worker::getDurability() {
 }
 
 void Worker::setDurability(int durability) {
-    this->durability = durability;
+    Worker::durability = durability;
 }
 
 int Worker::getSpeed() {
@@ -65,9 +63,9 @@ int Worker::getMiningGoldPerRound() {
     return miningGoldPerRound;
 }
 
+char Worker::getOwner() {
+    return ownerUnit;
+}
 
-/*
 
-int Worker::getAttack(int unitAttacking) {
-    return attack[unitAttacking];
-}*/
+

@@ -7,8 +7,14 @@
 
 
 class Player {
+    int gold;
+public:
     Player();
     ~Player();
+
+    int getGold();
+    void setGold(int gold);
+
 };
 
 
