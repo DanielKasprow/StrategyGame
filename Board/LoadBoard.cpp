@@ -67,7 +67,10 @@ int *Board::getLocationPlayer(char player) {
     for(int height=0; height < boardHeightTemp; height++){
         for(int width=0; width < boardWidthTemp; width++){
             if(board[height][width] == player){
-                int localization[2]={height,width};
+                static int localization[2];
+                localization[0]=height;
+                localization[1]=width;
+
                 return localization;
             }
         }

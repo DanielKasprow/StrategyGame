@@ -5,6 +5,7 @@
 #ifndef UNTITLED_PLAYER_H
 #define UNTITLED_PLAYER_H
 
+#include <iostream>
 
 class Player {
     int gold;

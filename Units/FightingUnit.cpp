@@ -1,65 +1,84 @@
 //
 // Created by Daniel Kasprow on 28.04.2023.
 //
-#include <iostream>
 #include "../Headers/Units.h"
 
 using namespace std;
 
 
-FightingUnit::FightingUnit(char ownerUnit, UnitType unitType) : Unit("name", 7, 1, ownerUnit) {
+FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit, UnitType unitType) : Unit( ownerUnit, localizationY, localizationX) {
     switch (unitType) {
         case Knight:
             name = "K";
             durability = 70;
-            speed = 5;
-            price = 400;
+            speed = actionPoints = 5;
             range = 1;
-            buildTime = 5;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[6]=attack[7]= 35;
+            attack[5]=50;
             break;
         case Swordsman:
             name = "S";
             durability = 60;
-            speed = 2;
-            price = 250;
+            speed = actionPoints = 2;
             range = 1;
-            buildTime = 3;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[5]=attack[6]=attack[7]= 30;
+            attack[3]=attack[4]=20;
             break;
         case Archer:
             name = "A";
             durability = 40;
-            speed = 2;
-            price = 250;
+            speed = actionPoints = 2;
             range = 5;
-            buildTime = 3;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[3]=attack[6]=attack[7]= 15;
+            attack[4]=attack[5]=10;
             break;
         case Pikeman:
             name = "P";
             durability = 50;
-            speed = 2;
-            price = 200;
+            speed = actionPoints = 2;
             range = 2;
-            buildTime = 3;
-            break;
-        case Ram:
-            name = "R";
-            durability = 90;
-            speed = 2;
-            price = 500;
-            range = 1;
-            buildTime = 4;
+            attack = new int[8];
+            attack[0]=35;
+            attack[1]=attack[2]=attack[3]=attack[4]=attack[6]= 15;
+            attack[5]=attack[7]=10;
             break;
         case Catapult:
             name = "C";
             durability = 50;
-            speed = 2;
-            price = 800;
+            speed = actionPoints = 2;
             range = 7;
-            buildTime = 6;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 40;
+            attack[7]=50;
+            break;
+        case Ram:
+            name = "R";
+            durability = 90;
+            speed = actionPoints = 2;
+            range = 1;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 10;
+            attack[7]=50;
+            break;
+
+        case Worker:
+            name = "W";
+            durability = 20;
+            speed = actionPoints = 2;
+            range = 1;
+            attack = new int[8];
+            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 5;
+            attack[7]=1;
             break;
     }
 
-};
+}
+string FightingUnit::getName(){
+    return name;
+}
 
 int FightingUnit::getDurability() {
     return durability;
@@ -73,16 +92,8 @@ int FightingUnit::getSpeed() {
     return speed;
 }
 
-int FightingUnit::getPrice() {
-    return price;
-}
-
 int FightingUnit::getRange() {
     return range;
-}
-
-int FightingUnit::getBuildTime() {
-    return buildTime;
 }
 
 int FightingUnit::getLocalizationX() {
@@ -93,12 +104,10 @@ int FightingUnit::getLocalizationY() {
     return localizationY;
 }
 
-void FightingUnit::setLocalizationX(int localizationX) {
+void FightingUnit::setLocalization(int localizationY, int localizationX) {
     FightingUnit::localizationX = localizationX;
-}
-
-void FightingUnit::setLocalizationY(int localizationY) {
     FightingUnit::localizationY = localizationY;
+
 }
 
 int FightingUnit::getId() {
@@ -109,7 +118,59 @@ char FightingUnit::getOwner() {
     return ownerUnit;
 }
 
-FightingUnit::~FightingUnit() {}
+FightingUnit::~FightingUnit() = default;
+
+int FightingUnit::getActionPoints() {
+    return actionPoints;
+}
+
+void FightingUnit::setActionPoints(int actionPoints) {
+    FightingUnit::actionPoints = actionPoints;
+}
+
+void FightingUnit::newRound() {
+    FightingUnit::actionPoints = speed;
+    FightingUnit::alreadyAttacking = false;
+}
+
+bool FightingUnit::getAlreadyAttacking() {
+    return alreadyAttacking;
+}
+
+void FightingUnit::setAlreadyAttacking() {
+    FightingUnit::alreadyAttacking = true;
+}
+
+int FightingUnit::getAttack(char unitAttacking) {
+    switch (unitAttacking) {
+        case 'K':
+            return attack[0];
+            break;
+        case 'S':
+            return attack[1];
+            break;
+        case 'A':
+            return attack[2];
+            break;
+        case 'P':
+            return attack[3];
+            break;
+        case 'R':
+            return attack[4];
+            break;
+        case 'C':
+            return attack[5];
+            break;
+        case 'W':
+            return attack[6];
+            break;
+        case 'B':
+            return attack[7];
+            break;
+    }
+}
+
+
 
 
 

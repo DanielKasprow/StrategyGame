@@ -15,7 +15,7 @@ int Player::getGold() {
 }
 
 void Player::setGold(int gold) {
-    this->gold = gold;
+    Player::gold = gold;
 
 }
 

@@ -9,13 +9,13 @@
 #include <iostream>
 #include "Unit.cpp"
 #include "../Interfaces/UnitsFightingActions.cpp"
-#include "../Interfaces/WorkerUnitActions.cpp"
 
-enum UnitType { Knight, Swordsman, Archer, Pikeman, Ram, Catapult };
+
+enum UnitType { Knight, Swordsman, Archer, Pikeman, Ram, Catapult, Worker };
 
 class Base : public Unit{
     int productionTime = 0;
-
+    char productionType = 0;
 public:
     Base(int localizationY, int localizationX, char ownerUnit);
     virtual ~Base();
@@ -28,47 +28,25 @@ public:
     int getLocalizationX() override;
     int getLocalizationY() override;
 
-    int getProductionTime();
+    void setProductionType(char unitType);
+    char getProductionType() const;
+    int getProductionTime() const;
 
     void setProductionTime(int productionRemaning);
 
     char getOwner() override;
-};
 
-class Worker : public Unit, UnitsFightingActions, WorkerUnitActions{
-public:
+    int getActionPoints() override;
+    void setActionPoints(int ActionPoints) override;
+    void newRound() override;
 
-    Worker();
-
-    Worker(char ownerUnit);
-
-    virtual ~Worker();
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getPrice() override;
-    int getRange() override;
-    int getBuildTime() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
-
-    int getMiningGoldPerRound() override;
-
-    char getOwner() override;
-
+    string getName() override;
 };
 
 class FightingUnit : public Unit, UnitsFightingActions{
 public:
 
-    FightingUnit(char ownerUnit, UnitType unitType);
+    FightingUnit(int localizationY, int localizationX, char ownerUnit, UnitType unitType);
 
     virtual ~FightingUnit();
 
@@ -77,17 +55,25 @@ public:
     void setDurability(int durability) override;
     int getSpeed() override;
 
-    int getPrice() override;
     int getRange() override;
-    int getBuildTime() override;
 
     int getLocalizationX() override;
     int getLocalizationY() override;
 
-    void setLocalizationX(int localizationX) override;
-    void setLocalizationY(int localizationY) override;
+    void setLocalization(int localizationX, int localizationY) override;
 
     char getOwner() override;
 
+    int getActionPoints() override;
+    void setActionPoints(int ActionPoints) override;
+    void newRound() override;
+
+    bool getAlreadyAttacking() override;
+
+    void setAlreadyAttacking() override;
+
+    int getAttack(char unitAttacking) override;
+
+    string getName() override;
 };
 
