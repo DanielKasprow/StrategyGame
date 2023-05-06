@@ -11,7 +11,7 @@ FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit,
         case Knight:
             name = "K";
             durability = 70;
-            speed = actionPoints = 5;
+            speed = actionPoints = 200;
             range = 1;
             attack = new int[8];
             attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[6]=attack[7]= 35;

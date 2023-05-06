@@ -26,12 +26,12 @@ char **loadBoardFromFile(string file) {
         //load row from file in format string
         while (!loadboard.eof()) {
             getline(loadboard, rowLoad);
-            boardTemp.push_back(rowLoad);
+            if (rowLoad.size() > 0)
+                boardTemp.push_back(rowLoad);
 
         }
-        boardWidthTemp=boardTemp[0].size();
-    }
-    else {
+        boardWidthTemp = boardTemp[0].size();
+    } else {
         char **board = new char *[0];
         board[0] = new char[0];
         board[0][0] = -1;
@@ -39,12 +39,12 @@ char **loadBoardFromFile(string file) {
     loadboard.close();
     boardHeightTemp = boardTemp.size();
 
-    board = new char*[boardHeightTemp];
+    board = new char *[boardHeightTemp];
     for (int x = 0; x < boardHeightTemp; x++) {
         board[x] = new char[boardWidthTemp];
     }
     //convert list to char 2d
-    for (int i=0;i<boardHeightTemp ; i++) {
+    for (int i = 0; i < boardHeightTemp; i++) {
         rowLoad = boardTemp[i];
         strcpy(board[i], rowLoad.c_str());
     }
@@ -60,16 +60,17 @@ Board::Board(string file) {
     Board::boardHeight = boardHeightTemp;
 };
 
-char Board::getBoardPoint(int y, int x){
+char Board::getBoardPoint(int y, int x) {
     return Board::board[y][x];
 }
+
 int *Board::getLocationPlayer(char player) {
-    for(int height=0; height < boardHeightTemp; height++){
-        for(int width=0; width < boardWidthTemp; width++){
-            if(board[height][width] == player){
+    for (int height = 0; height < boardHeightTemp; height++) {
+        for (int width = 0; width < boardWidthTemp; width++) {
+            if (board[height][width] == player) {
                 static int localization[2];
-                localization[0]=height;
-                localization[1]=width;
+                localization[0] = height;
+                localization[1] = width;
 
                 return localization;
             }
