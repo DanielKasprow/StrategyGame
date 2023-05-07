@@ -8,7 +8,10 @@
 
 
 int main() {
-    string mediator = "D:\\Users\\trane\\CLionProjects\\untitled\\mapa.txt D:\\Users\\trane\\CLionProjects\\untitled\\status.txt D:\\Users\\trane\\CLionProjects\\untitled\\rozkazy.txt";
+    std::cout<<"podaj sciezkie plikow mapa.txt status.txt rozkazy.txt"<<endl;
+    string mediator;
+    std::cin>>mediator;
+    system("clear");
     vector<string> files = splitString(mediator, ' ');
     int *playerLocalization;
     
@@ -21,22 +24,20 @@ int main() {
     Base *enemyBase;
     std::map<int, FightingUnit *> fightingUnits;
 
+    //set base players location from file
     playerLocalization = board.getLocationPlayer('1');
     playerBase = new Base(playerLocalization[0], playerLocalization[1], 'P');
     playerLocalization = board.getLocationPlayer('2');
     enemyBase = new Base(playerLocalization[0], playerLocalization[1], 'E');
 
-    fightingUnits[3] = new FightingUnit(0,1,'P',Knight);
-    std::cout<<board.getBoardPoint(2,8);
     int round = 0;
     while (round < 2000) {
         round++;
         if (round % 2 != 0) {
-            saveStatusToFile(files[1],enemyPlayer,enemyBase,playerBase,fightingUnits);
+            saveStatusToFile(files[1],player,playerBase,enemyBase,fightingUnits);
             std::cout<<"\nRunda Gracza 1: zatwierdz"<<endl;
-            system("pause");
-            system("CLS");
-
+            std::cin.get();
+            system("clear");
             checkPlayerCommand(files[2], player, playerBase, enemyBase, fightingUnits, 'P', board);
             fightingUnits = eliminateDefeatedUnits(fightingUnits);
             fightingUnits = newRound(player, playerBase, fightingUnits, 'P', board);
@@ -44,11 +45,10 @@ int main() {
 
 
         } else {
-            saveStatusToFile(files[1],player,playerBase,enemyBase,fightingUnits);
+            saveStatusToFile(files[1],enemyPlayer,playerBase,enemyBase,fightingUnits);
             std::cout<<"\nRunda Gracza 2: zatwierdz"<<endl;
-            system("pause");
-            system("CLS");
-
+            std::cin.get();
+            system("clear");
             checkPlayerCommand(files[2], enemyPlayer, enemyBase, playerBase, fightingUnits, 'E', board);
             fightingUnits = eliminateDefeatedUnits(fightingUnits);
             fightingUnits = newRound(enemyPlayer, enemyBase, fightingUnits, 'E', board);
@@ -56,6 +56,7 @@ int main() {
 
         }
 
+        //checking players base durability if have 0 or less, it's game over
         if (playerBase->getDurability() <= 0) {
             std::cout<<"Gracz 2 wygral!";
             break;
