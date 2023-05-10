@@ -20,7 +20,7 @@ protected:
     int localizationY;
     char ownerUnit;
 
-    Unit(char ownerUnit, int localizationX, int localizationY) {
+    Unit(char ownerUnit, int localizationY, int localizationX) {
         Unit::unitId = lastId++;
         Unit::ownerUnit = ownerUnit;
         Unit::localizationX = localizationX;

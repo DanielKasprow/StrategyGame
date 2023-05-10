@@ -78,8 +78,8 @@ public:
 
     string getUnitType();
 };
-
-/*class Knight : protected FightingUnit{
+/*
+class Knight : public FightingUnit{
 public:
 
     Knight(int localizationY, int localizationX, char ownerUnit, UnitType unitType);

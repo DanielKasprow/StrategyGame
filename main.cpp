@@ -11,9 +11,9 @@
 
 
 int main(int argc, char **argv) {
+
     std::vector<std::string> files = argToVector(argc, argv);
     int timePerRoundInSeconds = getTimePerRound( files[3]);
-
 
     //initialize clock
     int delay = timePerRoundInSeconds;
@@ -36,6 +36,9 @@ int main(int argc, char **argv) {
     playerBase = new Base(playerLocalization[0], playerLocalization[1], 'P');
     playerLocalization = board.getLocationPlayer('2');
     enemyBase = new Base(playerLocalization[0], playerLocalization[1], 'E');
+
+    fightingUnits[3]= new FightingUnit(0,1,'P',Worker);
+    fightingUnits[4]= new FightingUnit(1,1,'E',Worker);
 
     int round = 0;
     while (round < 2000) {

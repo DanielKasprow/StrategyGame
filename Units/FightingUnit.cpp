@@ -12,55 +12,42 @@ FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit,
             durability = 70;
             speed = actionPoints = 200;
             range = 1;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[6]=attack[7]= 35;
-            attack[5]=50;
+            attack = new int[8]{35,35,35,35,35,35,35,50};
             break;
         case Swordsman:
             name = "S";
             durability = 60;
             speed = actionPoints = 2;
             range = 1;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[5]=attack[6]=attack[7]= 30;
-            attack[3]=attack[4]=20;
+            attack = new int[8]{30,30,30,20,20,30,30,30};
             break;
         case Archer:
             name = "A";
             durability = 40;
             speed = actionPoints = 2;
             range = 5;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[3]=attack[6]=attack[7]= 15;
-            attack[4]=attack[5]=10;
+            attack = new int[8]{15,15,15,15,10,10,15,15};
             break;
         case Pikeman:
             name = "P";
             durability = 50;
             speed = actionPoints = 2;
             range = 2;
-            attack = new int[8];
-            attack[0]=35;
-            attack[1]=attack[2]=attack[3]=attack[4]=attack[6]= 15;
-            attack[5]=attack[7]=10;
+            attack = new int[8]{35,15,15,15,15,10,15,10};
             break;
         case Catapult:
             name = "C";
             durability = 50;
             speed = actionPoints = 2;
             range = 7;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 40;
-            attack[7]=50;
+            attack = new int[8]{40,40,40,40,40,40,40,50};
             break;
         case Ram:
             name = "R";
             durability = 90;
             speed = actionPoints = 2;
             range = 1;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 10;
-            attack[7]=50;
+            attack = new int[8]{10,10,10,10,10,10,10,50};
             break;
 
         case Worker:
@@ -68,9 +55,7 @@ FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit,
             durability = 20;
             speed = actionPoints = 2;
             range = 1;
-            attack = new int[8];
-            attack[0]=attack[1]=attack[2]=attack[3]=attack[4]=attack[5]=attack[6]= 5;
-            attack[7]=1;
+            attack = new int[8]{5,5,5,5,5,5,5,1};
             break;
     }
 
