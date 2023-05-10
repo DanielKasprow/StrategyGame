@@ -1,5 +1,5 @@
 CMakeFiles/tietoevryTaskGame-master.dir/Board/LoadBoard.cpp.o: \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Board/LoadBoard.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Board/LoadBoard.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -128,7 +128,7 @@ CMakeFiles/tietoevryTaskGame-master.dir/Board/LoadBoard.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Board/../Headers/Board.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Board/../Headers/Board.h \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/ext/aligned_buffer.h \

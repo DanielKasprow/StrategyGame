@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/danielkasprow/Downloads/tietoevryTaskGame-master/Units
+CXX_INCLUDES = -I/home/danielkasprow/Downloads/test/tietoevryTaskGame/Units
 
 CXX_FLAGS = 
 

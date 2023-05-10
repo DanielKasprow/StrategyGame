@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielkasprow/Downloads/tietoevryTaskGame-master
+CMAKE_SOURCE_DIR = /home/danielkasprow/Downloads/test/tietoevryTaskGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielkasprow/Downloads/tietoevryTaskGame-master/build
+CMAKE_BINARY_DIR = /home/danielkasprow/Downloads/test/tietoevryTaskGame/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/tietoevryTaskGame-master.dir/clean
 CMakeFiles/tietoevryTaskGame-master.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tietoevryTaskGame-master.dir/build.make CMakeFiles/tietoevryTaskGame-master.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tietoevryTaskGame-master.dir/build.make CMakeFiles/tietoevryTaskGame-master.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target tietoevryTaskGame-master"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target tietoevryTaskGame-master"
 .PHONY : CMakeFiles/tietoevryTaskGame-master.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tietoevryTaskGame-master.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tietoevryTaskGame-master.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles 0
 .PHONY : CMakeFiles/tietoevryTaskGame-master.dir/rule
 
 # Convenience name for target.

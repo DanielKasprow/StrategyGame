@@ -1,5 +1,5 @@
 CMakeFiles/tietoevryTaskGame-master.dir/Units/Unit.cpp.o: \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/Unit.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/Unit.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

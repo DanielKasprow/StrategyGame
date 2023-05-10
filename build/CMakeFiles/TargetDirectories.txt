@@ -1,3 +1,3 @@
-/home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles/tietoevryTaskGame-master.dir
-/home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles/edit_cache.dir
-/home/danielkasprow/Downloads/tietoevryTaskGame-master/build/CMakeFiles/rebuild_cache.dir
+/home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles/tietoevryTaskGame-master.dir
+/home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles/edit_cache.dir
+/home/danielkasprow/Downloads/test/tietoevryTaskGame/build/CMakeFiles/rebuild_cache.dir

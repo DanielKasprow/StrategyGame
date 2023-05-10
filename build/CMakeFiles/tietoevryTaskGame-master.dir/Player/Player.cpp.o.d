@@ -1,7 +1,7 @@
 CMakeFiles/tietoevryTaskGame-master.dir/Player/Player.cpp.o: \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Player/Player.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Player/Player.cpp \
  /usr/include/stdc-predef.h \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Player/../Headers/Player.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Player/../Headers/Player.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

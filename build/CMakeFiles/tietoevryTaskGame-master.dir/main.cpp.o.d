@@ -1,5 +1,5 @@
 CMakeFiles/tietoevryTaskGame-master.dir/main.cpp.o: \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/main.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -158,19 +158,26 @@ CMakeFiles/tietoevryTaskGame-master.dir/main.cpp.o: \
  /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h \
  /usr/include/c++/11/bits/stl_multimap.h \
- /usr/include/c++/11/bits/erase_if.h \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Headers/Units.h \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/Unit.cpp \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Headers/../Interfaces/UnitsFightingActions.cpp \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Headers/Board.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/bits/unique_ptr.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/limits \
+ /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Headers/Units.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/Unit.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Headers/../Interfaces/UnitsFightingActions.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Headers/Board.h \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/list.tcc \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/gameActions/GameActions.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/gameActions/GameActions.cpp \
  /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/cstring \
  /usr/include/string.h /usr/include/strings.h \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/gameActions/../Headers/Player.h
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/gameActions/../Headers/Player.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/gameActions/NewRound.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/gameActions/GamePreparing.cpp

@@ -15,11 +15,12 @@ int main(int argc, char **argv) {
     int timePerRoundInSeconds = getTimePerRound( files[3]);
 
 
-
+    //initialize clock
     int delay = timePerRoundInSeconds;
     delay *= CLOCKS_PER_SEC;
     clock_t now;
 
+    //initialize player, base, board
     Player *player;
     Player *enemyPlayer;
     player = new Player();

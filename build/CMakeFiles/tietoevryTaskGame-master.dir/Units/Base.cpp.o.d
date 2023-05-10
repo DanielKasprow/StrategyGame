@@ -1,7 +1,7 @@
 CMakeFiles/tietoevryTaskGame-master.dir/Units/Base.cpp.o: \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/Base.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/Base.cpp \
  /usr/include/stdc-predef.h \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/../Headers/Units.h \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/../Headers/Units.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -148,5 +148,5 @@ CMakeFiles/tietoevryTaskGame-master.dir/Units/Base.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/Unit.cpp \
- /home/danielkasprow/Downloads/tietoevryTaskGame-master/Units/../Headers/../Interfaces/UnitsFightingActions.cpp
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/Unit.cpp \
+ /home/danielkasprow/Downloads/test/tietoevryTaskGame/Units/../Headers/../Interfaces/UnitsFightingActions.cpp
