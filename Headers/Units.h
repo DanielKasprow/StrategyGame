@@ -79,7 +79,7 @@ public:
     string getUnitType();
 };
 
-class Knight : protected FightingUnit{
+/*class Knight : protected FightingUnit{
 public:
 
     Knight(int localizationY, int localizationX, char ownerUnit, UnitType unitType);
@@ -111,4 +111,4 @@ public:
     int getAttack(char unitAttacking) override;
 
     string getName() override;
-};
+};*/
