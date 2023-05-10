@@ -3,11 +3,10 @@
 //
 #include "../Headers/Units.h"
 
-using namespace std;
-
-
 FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit, UnitType unitType) : Unit( ownerUnit, localizationY, localizationX) {
+    FightingUnit::unitType = unitType;
     switch (unitType) {
+
         case Knight:
             name = "K";
             durability = 70;
@@ -76,6 +75,19 @@ FightingUnit::FightingUnit(int localizationY, int localizationX, char ownerUnit,
     }
 
 }
+string FightingUnit::getUnitType(){
+    switch(unitType){
+        case Knight: return "Knight";
+        case Swordsman:return "Swordsman";
+        case Archer:return "Archer";
+        case Pikeman:return "Pikeman";
+        case Catapult:return "Catapult";
+        case Ram:return "Ram";
+        case Worker:return "Worker";
+    }
+
+}
+
 string FightingUnit::getName(){
     return name;
 }
@@ -145,29 +157,22 @@ int FightingUnit::getAttack(char unitAttacking) {
     switch (unitAttacking) {
         case 'K':
             return attack[0];
-            break;
         case 'S':
             return attack[1];
-            break;
         case 'A':
             return attack[2];
-            break;
         case 'P':
             return attack[3];
-            break;
         case 'R':
             return attack[4];
-            break;
         case 'C':
             return attack[5];
-            break;
         case 'W':
             return attack[6];
-            break;
         case 'B':
             return attack[7];
-            break;
     }
+    return 0;
 }
 
 

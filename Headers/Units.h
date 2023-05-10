@@ -11,9 +11,9 @@
 #include "../Interfaces/UnitsFightingActions.cpp"
 
 
-enum UnitType { Knight, Swordsman, Archer, Pikeman, Ram, Catapult, Worker };
 
-class Base : public Unit{
+
+class Base : protected Unit{
     int productionTime = 0;
     char productionType = 0;
 public:
@@ -43,7 +43,7 @@ public:
     string getName() override;
 };
 
-class FightingUnit : public Unit, UnitsFightingActions{
+class FightingUnit : protected Unit, protected UnitsFightingActions{
 public:
 
     FightingUnit(int localizationY, int localizationX, char ownerUnit, UnitType unitType);
@@ -75,5 +75,40 @@ public:
     int getAttack(char unitAttacking) override;
 
     string getName() override;
+
+    string getUnitType();
 };
 
+class Knight : protected FightingUnit{
+public:
+
+    Knight(int localizationY, int localizationX, char ownerUnit, UnitType unitType);
+
+    ~Knight() override;
+
+    int getId() override;
+    int getDurability() override;
+    void setDurability(int durability) override;
+    int getSpeed() override;
+
+    int getRange() override;
+
+    int getLocalizationX() override;
+    int getLocalizationY() override;
+
+    void setLocalization(int localizationX, int localizationY) override;
+
+    char getOwner() override;
+
+    int getActionPoints() override;
+    void setActionPoints(int ActionPoints) override;
+    void newRound() override;
+
+    bool getAlreadyAttacking() override;
+
+    void setAlreadyAttacking() override;
+
+    int getAttack(char unitAttacking) override;
+
+    string getName() override;
+};
