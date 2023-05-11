@@ -97,27 +97,27 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
             //Checking command for Base
             if (to_string(playerBase->getId()) == commandSplited[0] && commandSplited.size() == 3) {
                 if (!(commandSplited[1] == "B" && playerBase->getProductionTime() <= 0)) {
-                    std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                    return;
+                    std::cout << "Komenda: " + command + " jest nie prawidlowa: Baza juz produkuje";
+                    break;
                 }
                 //Checking build existing unit Type
                 if (!(commandSplited[2] == "K" || commandSplited[2] == "S" || commandSplited[2] == "A"
                       || commandSplited[2] == "P" || commandSplited[2] == "R" || commandSplited[2] == "C" ||
                       commandSplited[2] == "W")) {
-                    std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                    return;
+                    std::cout << "Komenda: " + command + " jest nie prawidlowa: nie prawidlowa jednostka do budowania";
+                    break;
                 }
                 setBaseProduction(playerBase, player, commandSplited[2]);
 
             } else {
                 if (!fightingUnits[stoi(commandSplited[0])]) {
-                    std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                    return;
+                    std::cout << "Komenda: " + command + " jest nie prawidlowa: jednostka nie istnieje";
+                    break;
                 }
                 //checking command for fighting unit
                 if (fightingUnits[stoi(commandSplited[0])]->getOwner() != owner) {
-                    std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                    return;
+                    std::cout << "Komenda: " + command + " jest nie prawidlowa: proba rozkazania wrogiej jednostce";
+                    break;
                 }
                 //checking command attack
                 if (commandSplited[1] == "A" && commandSplited.size() == 3) {
@@ -125,16 +125,16 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
                     //Checking unit if attack in this round and have action point to attack
                     if (!(!fightingUnits[stoi(commandSplited[0])]->getAlreadyAttacking() &&
                           fightingUnits[stoi(commandSplited[0])]->getActionPoints() >= 1)) {
-                        std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                        return;
+                        std::cout << "Komenda: " + command + " jest nie prawidlowa: nie wystarczajaca ilosc punktow akcji dla jednostki lub jednostka juz atakowala";
+                        break;
                     }
                     //if enemy unit exist
                     if (fightingUnits[stoi(commandSplited[2])]) {
 
                         //checking command attacked unit if is an enemy unit
                         if (fightingUnits[stoi(commandSplited[2])]->getOwner() == owner) {
-                            std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                            return;
+                            std::cout << "Komenda: " + command + " jest nie prawidlowa: proba atakowania wlasnej jednostki";
+                            break;
                         }
                         //checking attack range
                         if (unitHaveActionPoint(fightingUnits[stoi(commandSplited[0])]->getRange(),
@@ -146,8 +146,8 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
                                                         commandSplited[2])]->getLocalizationX(),
                                                 fightingUnits[stoi(
                                                         commandSplited[2])]->getLocalizationY())) {
-                            std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                            return;
+                            std::cout << "Komenda: " + command + " jest nie prawidlowa: brak zasiegu do atakowania";
+                            break;
                         }
 
                         //change durability of attacked unit
@@ -176,8 +176,8 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
                                                           commandSplited[0])]->getLocalizationY(),
                                                   enemyBase->getLocalizationX(),
                                                   enemyBase->getLocalizationY()))) {
-                            std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                            return;
+                            std::cout << "Komenda: " + command + " jest nie prawidlowa: brak zasiegu do atakowania";
+                            break;
                         }
 
                         //change durability of attacked unit
@@ -200,16 +200,16 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
                     if (!(board.getBoardHeight() > stoi(commandSplited[2]) &&
                           board.getBoardWidth() > stoi(commandSplited[3]) && 0 <= stoi(commandSplited[2]) &&
                           0 <= stoi(commandSplited[2]))) {
-                        std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                        return;
+                        std::cout << "Komenda: " + command + " jest nie prawidlowa: nie mozna wyjsc po za plansze";
+                        break;
                     }
 
                     //checking localization enemy base, natural blockers
                     if (!((enemyBase->getLocalizationY() == stoi(commandSplited[2]) &&
                            enemyBase->getLocalizationX() == stoi(commandSplited[3])) ||
                           board.getBoardPoint(stoi(commandSplited[2]), stoi(commandSplited[3])) != '9')) {
-                        std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                        return;
+                        std::cout << "Komenda: " + command + " jest nie prawidlowa: proba staniecia na wrogiej bazie lub przeszkodzie";
+                        break;
                     }
 
                     bool isEnemyUnit = false;
@@ -228,8 +228,8 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
                                                             commandSplited[0])]->getLocalizationX(),
                                                     stoi(commandSplited[2]),
                                                     stoi(commandSplited[3]))))) {
-                            std::cout << "Komenda: " + command + " jest nie prawidlowa";
-                            return;
+                            std::cout << "Komenda: " + command + " jest nie prawidlowa: nie wystarczajaca ilosc punktow akcji do poruszania sie";
+                            break;
 
                         }
 

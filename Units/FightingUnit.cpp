@@ -70,7 +70,7 @@ string FightingUnit::getUnitType(){
         case Ram:return "Ram";
         case Worker:return "Worker";
     }
-
+    return nullptr;
 }
 
 string FightingUnit::getName(){

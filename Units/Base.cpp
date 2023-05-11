@@ -53,11 +53,7 @@ void Base::setProductionType(char unitType) {
             Base::productionTime = 5;
             break;
         case 'S':
-            Base::productionTime = 3;
-            break;
         case 'A':
-            Base::productionTime = 3;
-            break;
         case 'P':
             Base::productionTime = 3;
             break;
@@ -69,6 +65,8 @@ void Base::setProductionType(char unitType) {
             break;
         case 'W':
             Base::productionTime = 2;
+            break;
+        default:
             break;
     }
 }

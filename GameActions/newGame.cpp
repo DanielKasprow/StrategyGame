@@ -15,6 +15,7 @@
 
 int newGame(int argc, char **argv) {
 
+    //load arg to vector
     std::vector<std::string> files = argToVector(argc, argv);
     int timePerRoundInSeconds = getTimePerRound( files[3]);
 
@@ -40,27 +41,25 @@ int newGame(int argc, char **argv) {
     playerLocalization = board.getLocationPlayer('2');
     enemyBase = new Base(playerLocalization[0], playerLocalization[1], 'E');
 
-    fightingUnits[3]= new FightingUnit(0,1,'P',Knight);
-    fightingUnits[4]= new FightingUnit(1,1,'E',Worker);
-
     int round = 0;
     while (round < 2000) {
         round++;
         system("clear");
         switch (round % 2) {
+            //Round Player 1
             case 1:
                 saveStatusToFile(files[1], *player, *playerBase, *enemyBase, fightingUnits);
-                std::cout << "\nTura: " + to_string(round) +  "\nRunda Gracza 1: czas " + to_string(timePerRoundInSeconds) + " sekundy" << endl;
+                std::cout << "\nTura: " + to_string(round) +  "\nRunda Gracza 1: zapisz rozkazy w pliku: "+ files[2] + "\nCzas " + to_string(timePerRoundInSeconds) + " sekund" << endl;
                 now = clock();
                 while(clock() - now <delay);
 
                 checkPlayerCommand(files[2], player, playerBase, enemyBase, fightingUnits, 'P', board);
                 fightingUnits = newRound(player, playerBase, fightingUnits, 'P', board);
                 break;
-
+            //Round Player 2
             case 0:
                 saveStatusToFile(files[1], *enemyPlayer, *enemyBase,*playerBase,  fightingUnits);
-                std::cout << "\nTura: " + to_string(round) +  "\nRunda Gracza 2: czas " + to_string(timePerRoundInSeconds) + " sekundy" << endl;
+                std::cout << "\nTura: " + to_string(round) +  "\nRunda Gracza 2: zapisz rozkazy w pliku: "+ files[2] + "\nCzas " + to_string(timePerRoundInSeconds) + " sekund" << endl;
                 now = clock();
                 while(clock() - now <delay);
 

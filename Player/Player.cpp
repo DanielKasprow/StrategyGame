@@ -8,7 +8,7 @@ Player::Player() {
     this-> gold = 2000;
 }
 
-Player::~Player() {}
+Player::~Player() = default;
 
 int Player::getGold() {
     return gold;

@@ -15,7 +15,7 @@ class Board{
     int boardWidth;
 
 public:
-    Board(const std::string& fileLocalization);
+    explicit Board(const std::string& fileLocalization);
     ~Board();
 
     char getBoardPoint(int x, int y);
