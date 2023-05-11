@@ -1,5 +1,5 @@
 //
-// Created by danielkasprow on 10.05.23.
+// Created by Daniel kasprow on 10.05.23.
 //
 
 #include <iostream>
@@ -43,8 +43,8 @@ newRound(Player *player, Base *base, std::map<int, FightingUnit *> fightingUnits
             FightingUnit *fightingUnit;
             switch (base->getProductionType()) {
                 case 'K':
-                    fightingUnit = new FightingUnit(base->getLocalizationY(), base->getLocalizationX(),
-                                                    owner, Knight);
+                    fightingUnit = new FightingUnit(base->getLocalizationY(), base->getLocalizationX(),owner, Knight);
+                            //new FightingUnit(base->getLocalizationY(), base->getLocalizationX(),owner, Knight);
                     break;
                 case 'S':
                     fightingUnit = new FightingUnit(base->getLocalizationY(), base->getLocalizationX(),
@@ -82,14 +82,14 @@ newRound(Player *player, Base *base, std::map<int, FightingUnit *> fightingUnits
 }
 
 //Function which save to file status of the game
-void saveStatusToFile(std::string file, Player player, Base playerBase, Base enemyBase,
-                      std::map<int, FightingUnit *> fightingUnits) {
+void saveStatusToFile(const std::string& file, Player player, Base playerBase, const Base& enemyBase,
+                      const std::map<int, FightingUnit *>& fightingUnits) {
 
 
     ofstream saveToFile(file);
     auto saveBaseToFile = [](Base base, char owner) -> std::string {
         return
-                string(1, base.getOwner()) + " B " + std::to_string(base.getId()) + " " + std::to_string(base.getLocalizationY()) + " " +
+                std::string(1, base.getOwner()) + " B " + std::to_string(base.getId()) + " " + std::to_string(base.getLocalizationY()) + " " +
                 std::to_string(base.getLocalizationX()) + " " + std::to_string(base.getDurability()) + " " +
                 base.getProductionType() +
                 +" // baza " +((base.getOwner()==owner)?"gracza":"przeciwnika") + " w pozycji " + std::to_string(base.getLocalizationY()) + "," +
@@ -98,7 +98,7 @@ void saveStatusToFile(std::string file, Player player, Base playerBase, Base ene
     };
     auto saveUnitToFile = [](FightingUnit unit, char owner) -> std::string {
         return
-                string(1, unit.getOwner()) + " " + unit.getName() + " " + to_string(unit.getId()) + " " +
+                std::string(1, unit.getOwner()) + " " + unit.getName() + " " + to_string(unit.getId()) + " " +
                 to_string(unit.getLocalizationY()) + " " + to_string(unit.getLocalizationX()) + " " +
                 to_string(unit.getDurability()) + " // "+unit.getUnitType() + ((unit.getOwner()==owner)?" gracza":" przeciwnika")
                 + " na pozycji " + to_string(unit.getLocalizationY()) + "," + to_string(unit.getLocalizationX())
@@ -111,7 +111,7 @@ void saveStatusToFile(std::string file, Player player, Base playerBase, Base ene
     saveToFile << saveBaseToFile(enemyBase,playerBase.getOwner()) << endl;
 
     for (auto [id, unit]: fightingUnits) {
-        saveToFile <<saveUnitToFile(*unit, playerBase.getOwner())<<endl;;
+        saveToFile <<saveUnitToFile(*unit, playerBase.getOwner())<<endl;
     }
     saveToFile.close();
 

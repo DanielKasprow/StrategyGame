@@ -15,11 +15,11 @@ class Board{
     int boardWidth;
 
 public:
-    Board(std::string fileLocalization);
+    Board(const std::string& fileLocalization);
     ~Board();
 
     char getBoardPoint(int x, int y);
-    int getBoardHeight();
-    int getBoardWidth();
+    int getBoardHeight() const;
+    int getBoardWidth() const;
     int *getLocationPlayer(char player);
 };

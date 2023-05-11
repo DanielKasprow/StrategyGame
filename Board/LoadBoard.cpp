@@ -1,5 +1,5 @@
 //
-// Created by trane on 30.04.2023.
+// Created by Daniel Kasprow on 30.04.2023.
 //
 #include <string>
 #include "../Headers/Board.h"
@@ -8,35 +8,32 @@
 #include <cstring>
 #include <vector>
 
-using namespace std;
-
 int boardWidthTemp;
 int boardHeightTemp;
 
 //Method that load board from file in format .txt
-char **loadBoardFromFile(string file) {
+char **loadBoardFromFile(const std::string& file) {
 
     char **board;
-    vector<string> boardTemp;
-    ifstream loadboard(file);
-    string rowLoad;
+    std::vector<std::string> boardTemp;
+    std::ifstream loadBoard(file);
+    std::string rowLoad;
 
     //if exist file
-    if (loadboard) {
+    if (loadBoard) {
         //load row from file in format string
-        while (!loadboard.eof()) {
-            getline(loadboard, rowLoad);
-            if (rowLoad.size() > 0)
+        while (!loadBoard.eof()) {
+            getline(loadBoard, rowLoad);
+            if (!rowLoad.empty())
                 boardTemp.push_back(rowLoad);
 
         }
         boardWidthTemp = boardTemp[0].size();
     } else {
-        char **board = new char *[0];
-        board[0] = new char[0];
-        board[0][0] = -1;
+        std::cout<<"Bledna mapa";
+        exit(0);
     }
-    loadboard.close();
+    loadBoard.close();
     boardHeightTemp = boardTemp.size();
 
     board = new char *[boardHeightTemp];
@@ -53,7 +50,7 @@ char **loadBoardFromFile(string file) {
 }
 
 
-Board::Board(string file) {
+Board::Board(const std::string& file) {
 
     Board::board = loadBoardFromFile(file);
     Board::boardWidth = boardWidthTemp;
@@ -79,13 +76,13 @@ int *Board::getLocationPlayer(char player) {
     return nullptr;
 }
 
-int Board::getBoardHeight() {
+int Board::getBoardHeight() const {
     return boardHeight;
 }
 
-int Board::getBoardWidth() {
+int Board::getBoardWidth() const {
     return boardWidth;
 }
 
 
-Board::~Board() {}
+Board::~Board() = default;

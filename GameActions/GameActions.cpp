@@ -45,7 +45,7 @@ void changeGoldOfPlayerAndSetProductionToBase(Base *playerBase, Player *player, 
 }
 
 //set unit production in base player
-void setBaseProduction(Base *playerBase, Player *player, string productionType) {
+void setBaseProduction(Base *playerBase, Player *player, const string& productionType) {
     char *unitType = new char[productionType.length()];
     std::strcpy(unitType, productionType.c_str());
 
@@ -54,8 +54,6 @@ void setBaseProduction(Base *playerBase, Player *player, string productionType) 
             changeGoldOfPlayerAndSetProductionToBase(playerBase, player, 400, 5, unitType[0]);
             break;
         case 'S':
-            changeGoldOfPlayerAndSetProductionToBase(playerBase, player, 250, 3, unitType[0]);
-            break;
         case 'A':
             changeGoldOfPlayerAndSetProductionToBase(playerBase, player, 250, 3, unitType[0]);
             break;
@@ -92,7 +90,7 @@ void checkPlayerCommand(const std::string &file, Player *player, Base *playerBas
         }
         loadBoard.close();
 
-        for (auto command: commandLine) {
+        for (const auto& command: commandLine) {
 
             commandSplited = splitStringBy(command, ' ');
 

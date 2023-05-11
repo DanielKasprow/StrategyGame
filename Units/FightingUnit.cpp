@@ -156,8 +156,9 @@ int FightingUnit::getAttack(char unitAttacking) {
             return attack[6];
         case 'B':
             return attack[7];
+        default:
+            return 0;
     }
-    return 0;
 }
 
 

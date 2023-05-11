@@ -11,8 +11,6 @@
 #include "../Interfaces/UnitsFightingActions.cpp"
 
 
-
-
 class Base : protected Unit{
     int productionTime = 0;
     char productionType = 0;
@@ -78,37 +76,3 @@ public:
 
     string getUnitType();
 };
-/*
-class Knight : public FightingUnit{
-public:
-
-    Knight(int localizationY, int localizationX, char ownerUnit, UnitType unitType);
-
-    ~Knight() override;
-
-    int getId() override;
-    int getDurability() override;
-    void setDurability(int durability) override;
-    int getSpeed() override;
-
-    int getRange() override;
-
-    int getLocalizationX() override;
-    int getLocalizationY() override;
-
-    void setLocalization(int localizationX, int localizationY) override;
-
-    char getOwner() override;
-
-    int getActionPoints() override;
-    void setActionPoints(int ActionPoints) override;
-    void newRound() override;
-
-    bool getAlreadyAttacking() override;
-
-    void setAlreadyAttacking() override;
-
-    int getAttack(char unitAttacking) override;
-
-    string getName() override;
-};*/
